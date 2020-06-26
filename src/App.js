@@ -13,11 +13,11 @@ import {
 
 export default function App() {
 
-  const [ repositories, setRepository ] = useState([]);
+  const [ repositories, setRepositories ] = useState([]);
 
   useEffect( () => {
-    api.get('repositories/').then( response => {
-      setRepository( response.data );
+    api.get('repositories').then( response => {
+      setRepositories( response.data );
     });
   }, []);
 
@@ -30,7 +30,7 @@ export default function App() {
 
       repositories[index] = data;
 
-      setRepository([...repositories]);
+      setRepositories([...repositories]);
     });
   }
 
